@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flappy Bird</title>
+<style>
+body { margin: 0; overflow: hidden; }
+canvas { background: skyblue; }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+var canvas = document.getElementById("gameCanvas");
+var ctx = canvas.getContext("2d");
+
+canvas.width = 400;
+canvas.height = 480;
+
+// Bird properties
+var birdX = 50;
+var birdY = canvas.height / 2;
+var birdWidth = 20;
+var birdHeight = 20;
+var gravity = 0.6;
+var velocity = 0;
+var jumpStrength = -10;
+
+// Pipe properties
+var pipeWidth = 50;
+var pipeGap = 150;
+var pipes = [];
+
+// Score
+var score = 0;
+
+// Game loop
+function gameLoop() {
+  update();
+  draw();
+  requestAnimationFrame(gameLoop);
+}
+
+function update() {
+  // Bird update
+  velocity += gravity;
+  birdY += velocity;
+
+  // Jump
+  if (birdY < 0) {
+    birdY = 0;
+    velocity = 0;
+  }
+  if (birdY + birdHeight > canvas.height) {
+    birdY = canvas.height - birdHeight;
+    velocity = 0;
+  }
+
+  // Pipe update
+  if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+    pipes.push({
+      x: canvas.width,
+      y: Math.random() * (canvas.height - pipeGap - 100) + 50
+    });
+  }
+
+  for (var i = 0; i < pipes.length; i++) {
+    pipes[i].x -= 2;
+
+    // Collision detection
+    if (birdX < pipes[i].x + pipeWidth &&
+        birdX + birdWidth > pipes[i].x &&
+        birdY < pipes[i].y ||
+        birdX < pipes[i].x + pipeWidth &&
+        birdX + birdWidth > pipes[i].x &&
+        birdY + birdHeight > pipes[i].y + pipeGap) {
+      // Game Over - Reset
+      birdY = canvas.height / 2;
+      velocity = 0;
+      pipes = [];
+      score = 0;
+    }
+
+    if (pipes[i].x < -pipeWidth) {
+      pipes.splice(i, 1);
+      i--;
+      score++;
+    }
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw bird
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(birdX, birdY, birdWidth, birdHeight);
+
+  // Draw pipes
+  ctx.fillStyle = "green";
+  for (var i = 0; i < pipes.length; i++) {
+    ctx.fillRect(pipes[i].x, 0, pipeWidth, pipes[i].y);
+    ctx.fillRect(pipes[i].x, pipes[i].y + pipeGap, pipeWidth, canvas.height - (pipes[i].y + pipeGap));
+  }
+
+  // Draw score
+  ctx.fillStyle = "black";
+  ctx.font = "20px Arial";
+  ctx.fillText("Score: " + score, 10, 20);
+}
+
+// Event listener for jump
+document.addEventListener("mousedown", function() {
+  velocity = jumpStrength;
+});
+
+// Start the game loop
+gameLoop();
+</script>
+</body>
+</html>

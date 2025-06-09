@@ -1,0 +1,137 @@
+/* Neon color variables */
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #9d00ff;
+  --neon-pink: #ff00f7;
+  --neon-green: #00ff9d;
+}
+
+/* Enhanced thinking animation with rotating text and neon effects */
+.thinking-animation-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 10px;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  animation: containerPulse 3s infinite alternate;
+  max-width: 300px;
+}
+
+.thinking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rotating-text {
+  display: inline-block;
+  font-weight: 600;
+  animation: neonTextPulse 1.5s infinite alternate, textFade 2s infinite ease-in-out;
+}
+
+.neon-text {
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+.elapsed-time {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--neon-purple);
+  text-shadow: 0 0 4px var(--neon-purple), 0 0 8px var(--neon-purple);
+}
+
+@keyframes textFade {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes neonTextPulse {
+  0% {
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+  }
+
+  100% {
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+  }
+}
+
+@keyframes containerPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+  }
+}
+
+/* Percentage bar styling with neon effects */
+.percentage-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  margin-top: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.percentage-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+  border-radius: 4px;
+  transition: width 0.2s ease-out;
+  box-shadow: 0 0 8px var(--neon-blue), 0 0 12px var(--neon-purple);
+}
+
+.percentage-text {
+  position: absolute;
+  right: 5px;
+  top: -20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+/* Light mode overrides */
+.light-mode .thinking-animation-container {
+  background-color: rgba(240, 240, 240, 0.9);
+  border: 1px solid rgba(56, 161, 105, 0.3);
+  box-shadow: 0 0 15px rgba(56, 161, 105, 0.2);
+}
+
+.light-mode .neon-text {
+  color: #38A169;
+  text-shadow: 0 0 2px #38A169;
+}
+
+.light-mode .elapsed-time {
+  color: #805AD5;
+  text-shadow: 0 0 2px #805AD5;
+}
+
+.light-mode .percentage-bar {
+  background: linear-gradient(90deg, #38A169 0%, #805AD5 100%);
+  box-shadow: 0 0 4px #38A169;
+}
+
+.light-mode .percentage-text {
+  color: #38A169;
+  text-shadow: 0 0 2px #38A169;
+}

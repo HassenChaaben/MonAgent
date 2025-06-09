@@ -1,0 +1,351 @@
+/* Neon Theme for Dark Mode */
+
+/* Define neon colors */
+:root {
+  /* Neon colors */
+  --neon-blue: #00f3ff;
+  --neon-purple: #d000ff;
+  --neon-pink: #ff00e4;
+  --neon-green: #00ff9f;
+  --neon-yellow: #ffee00;
+  --neon-orange: #ff9900;
+  --neon-red: #ff0055;
+
+  /* Neon glow effects - simplified for better rendering */
+  --neon-blue-glow: 0 0 5px 0px #00bcd4, 0 0 10px 0px rgba(0, 188, 212, 0.8);
+  --neon-purple-glow: 0 0 5px 0px #d000ff, 0 0 10px 0px rgba(208, 0, 255, 0.8);
+  --neon-pink-glow: 0 0 5px 0px #ff00e4, 0 0 10px 0px rgba(255, 0, 228, 0.8);
+  --neon-green-glow: 0 0 5px 0px #10a37f, 0 0 10px 0px rgba(16, 163, 127, 0.8);
+  --neon-yellow-glow: 0 0 5px 0px #ffee00, 0 0 10px 0px rgba(255, 238, 0, 0.8);
+  --neon-orange-glow: 0 0 5px 0px #ff9900, 0 0 10px 0px rgba(255, 153, 0, 0.8);
+  --neon-red-glow: 0 0 5px 0px #ff0055, 0 0 10px 0px rgba(255, 0, 85, 0.8);
+}
+
+/* Override dark mode variables with neon theme */
+:root:not(.light-mode) {
+  /* Primary color becomes neon green */
+  --primary-color: var(--neon-green);
+  --primary-hover: #00cc80;
+  --primary-light: rgba(0, 255, 159, 0.1);
+  --glow-effect: var(--neon-green-glow);
+
+  /* Accent color becomes neon blue */
+  --accent-color: var(--neon-blue);
+  --accent-hover: #00c8d4;
+  --accent-light: rgba(0, 243, 255, 0.1);
+
+  /* Background colors - slightly darker for better contrast with neon */
+  --bg-dark: #121218;
+  --bg-darker: #0a0a10;
+  --bg-message-user: #1a1a24;
+  --bg-message-assistant: #1e1e28;
+  --bg-input: #1e1e28;
+
+  /* Text colors - brighter for better contrast */
+  --text-color: #e0e0ff;
+  --text-bright: #ffffff;
+
+  /* Gradients with neon colors */
+  --gradient-primary: linear-gradient(135deg, var(--neon-green) 0%, #00cc80 100%);
+  --gradient-accent: linear-gradient(135deg, var(--neon-blue) 0%, #00c8d4 100%);
+}
+
+/* Neon text effect - only in dark mode */
+:root:not(.light-mode) .neon-text {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px currentColor;
+}
+
+/* Apply neon effects to specific elements in dark mode */
+:root:not(.light-mode) .ide-container,
+:root:not(.light-mode) .chat-container {
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(0, 243, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 255, 159, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(208, 0, 255, 0.02) 0%, transparent 60%);
+}
+
+/* Neon borders */
+:root:not(.light-mode) .ide-header,
+:root:not(.light-mode) .file-explorer,
+:root:not(.light-mode) .editor-header,
+:root:not(.light-mode) .action-button,
+:root:not(.light-mode) .theme-toggle,
+:root:not(.light-mode) .app-nav,
+:root:not(.light-mode) .nav-link {
+  border-color: rgba(0, 243, 255, 0.2);
+}
+
+/* Neon headings */
+:root:not(.light-mode) .ide-header h1,
+:root:not(.light-mode) .file-explorer-header h2,
+:root:not(.light-mode) .editor-header h3 {
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+}
+
+/* Neon buttons */
+:root:not(.light-mode) .action-button:hover,
+:root:not(.light-mode) .back-button:hover,
+:root:not(.light-mode) .theme-toggle:hover {
+  box-shadow: var(--neon-blue-glow);
+  border-color: var(--neon-blue);
+}
+
+:root:not(.light-mode) .action-button.active {
+  background-color: var(--neon-green);
+  box-shadow: var(--neon-green-glow);
+  border-color: var(--neon-green);
+}
+
+:root:not(.light-mode) .action-button.run {
+  background-color: var(--neon-blue);
+  box-shadow: var(--neon-blue-glow);
+  border-color: var(--neon-blue);
+}
+
+:root:not(.light-mode) .action-button.run:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Neon file explorer items */
+:root:not(.light-mode) .file-item:hover,
+:root:not(.light-mode) .project-item:hover,
+:root:not(.light-mode) .breadcrumb-item:hover {
+  background-color: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+:root:not(.light-mode) .file-item.directory svg,
+:root:not(.light-mode) .project-item svg,
+:root:not(.light-mode) .breadcrumb-item svg {
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 2px rgba(0, 243, 255, 0.5));
+}
+
+:root:not(.light-mode) .file-item.file svg {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 2px rgba(0, 255, 159, 0.5));
+}
+
+/* Neon navigation */
+:root:not(.light-mode) .app-nav {
+  background-color: rgba(10, 10, 16, 0.8);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+:root:not(.light-mode) .nav-link {
+  color: var(--text-color);
+}
+
+:root:not(.light-mode) .nav-link:hover {
+  background-color: rgba(0, 243, 255, 0.1);
+  color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+:root:not(.light-mode) .nav-link.active {
+  background-color: var(--neon-blue);
+  color: var(--bg-darker);
+  box-shadow: var(--neon-blue-glow);
+}
+
+:root:not(.light-mode) .nav-link::after {
+  background-color: var(--neon-blue);
+  box-shadow: 0 0 5px var(--neon-blue);
+}
+
+/* Explicitly reset light mode nav styles to prevent neon effects */
+.light-mode .app-nav {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.15) !important;
+  border: 1px solid rgba(56, 161, 105, 0.3) !important;
+  background-image: none !important;
+}
+
+.light-mode .nav-link,
+.light-mode .nav-link:hover,
+.light-mode .nav-link.active,
+.light-mode .nav-link::after {
+  text-shadow: none;
+  box-shadow: none;
+  filter: none;
+}
+
+/* Override neon hover effects for light mode */
+.light-mode .nav-link:hover {
+  background-color: #ffffff !important;
+  color: #38A169 !important;
+  box-shadow: 0 2px 8px rgba(56, 161, 105, 0.1) !important;
+  border: 1px solid rgba(56, 161, 105, 0.2) !important;
+}
+
+/* Neon scrollbar */
+:root:not(.light-mode) *::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 243, 255, 0.3);
+  border-radius: 10px;
+}
+
+:root:not(.light-mode) *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 243, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+}
+
+:root:not(.light-mode) *::-webkit-scrollbar-track {
+  background-color: rgba(10, 10, 16, 0.5);
+}
+
+/* Neon input focus */
+:root:not(.light-mode) input:focus,
+:root:not(.light-mode) textarea:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.2);
+}
+
+/* Neon code blocks */
+:root:not(.light-mode) .code-viewer,
+:root:not(.light-mode) .code-editor {
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.05);
+}
+
+/* Neon file actions */
+:root:not(.light-mode) .file-action-button {
+  background-color: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+:root:not(.light-mode) .file-action-button:hover {
+  background-color: var(--neon-blue);
+  color: var(--bg-darker);
+  box-shadow: var(--neon-blue-glow);
+  transform: translateY(-3px);
+}
+
+:root:not(.light-mode) .file-action-button.edit:hover {
+  background-color: var(--neon-green);
+  box-shadow: var(--neon-green-glow);
+}
+
+:root:not(.light-mode) .file-action-button.run:hover {
+  background-color: var(--neon-purple);
+  box-shadow: var(--neon-purple-glow);
+}
+
+/* Neon animations - simplified for better rendering */
+@keyframes neon-pulse {
+  0% {
+    box-shadow: 0 0 5px 0px currentColor;
+  }
+
+  50% {
+    box-shadow: 0 0 8px 0px currentColor;
+  }
+
+  100% {
+    box-shadow: 0 0 5px 0px currentColor;
+  }
+}
+
+:root:not(.light-mode) .theme-toggle {
+  animation: neon-pulse 3s infinite;
+  animation-play-state: paused;
+}
+
+:root:not(.light-mode) .theme-toggle:hover {
+  animation-play-state: running;
+}
+
+/* Neon chat messages */
+:root:not(.light-mode) .message.assistant {
+  border-left: 2px solid var(--neon-blue);
+}
+
+:root:not(.light-mode) .message.user {
+  border-left: 2px solid var(--neon-green);
+}
+
+:root:not(.light-mode) .thinking-indicator {
+  color: var(--neon-blue);
+  background-color: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  animation: neon-pulse 2s infinite;
+}
+
+/* Final light mode override to ensure no neon effects leak through */
+.light-mode .app-nav *,
+.light-mode .nav-link,
+.light-mode .theme-toggle {
+  animation: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.light-mode .app-nav {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-mode .nav-link,
+.light-mode .nav-link:hover,
+.light-mode .nav-link.active {
+  box-shadow: none !important;
+}
+
+.light-mode .nav-link::after {
+  box-shadow: none !important;
+}
+
+/* Explicitly reset light mode new chat button styling */
+.light-mode .new-chat-button {
+  background: linear-gradient(135deg, #38A169 0%, #2F855A 100%) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.2) !important;
+}
+
+.light-mode .new-chat-button:hover {
+  background: #38A169 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(56, 161, 105, 0.3) !important;
+}
+
+.light-mode .new-chat-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 8px rgba(56, 161, 105, 0.2) !important;
+}
+
+/* Override any neon effects for light mode buttons */
+.light-mode .new-chat-button,
+.light-mode button.new-chat-light {
+  animation: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* Light mode thinking indicator with green shadows */
+.light-mode .thinking-indicator {
+  color: #38A169 !important;
+  background-color: rgba(56, 161, 105, 0.1) !important;
+  box-shadow: 0 0 10px rgba(56, 161, 105, 0.3) !important;
+}
+
+/* Add a subtle animation for the light mode thinking indicator - simplified for better rendering */
+@keyframes green-pulse {
+  0% {
+    box-shadow: 0 1px 3px rgba(56, 161, 105, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 1px 5px rgba(56, 161, 105, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 1px 3px rgba(56, 161, 105, 0.3);
+  }
+}
+
+.light-mode .thinking-indicator {
+  animation: green-pulse 2s infinite !important;
+}

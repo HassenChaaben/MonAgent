@@ -1,0 +1,438 @@
+/* AboutPage.css */
+/* Inherit global styles from HomePage.css */
+@import './HomePage.css';
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f1624;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow-y: visible;
+  padding-bottom: 60px;
+  width: 100%;
+  height: auto;
+}
+
+.about-container.light-mode {
+  background-color: #f7fafc;
+  color: #1a202c;
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(240, 249, 255, 0.8));
+}
+
+/* Header Styles */
+.about-header {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Main Content */
+.about-main {
+  flex: 1;
+  padding: 0 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: center;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: #06b6d4;
+  font-weight: 700;
+}
+
+.light-mode .about-content h2 {
+  color: #38A169;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .about-content p {
+  color: #4a5568;
+}
+
+.about-image {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mission Section */
+.mission-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.mission-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .mission-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .mission-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #06b6d4;
+  font-weight: 600;
+}
+
+.light-mode .mission-card h3 {
+  color: #38A169;
+}
+
+.mission-card p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .mission-card p {
+  color: #4a5568;
+}
+
+.mission-card ul {
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.mission-card li {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .mission-card li {
+  color: #4a5568;
+}
+
+/* Team Section */
+.team-section {
+  margin-bottom: 60px;
+}
+
+.team-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #06b6d4;
+  font-weight: 700;
+}
+
+.light-mode .team-section h2 {
+  color: #38A169;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.team-member {
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 3px solid #06b6d4;
+  box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+}
+
+.light-mode .member-image {
+  border-color: #38A169;
+  box-shadow: 0 5px 15px rgba(56, 161, 105, 0.3);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #06b6d4;
+  font-weight: 600;
+}
+
+.light-mode .team-member h3 {
+  color: #38A169;
+}
+
+.member-role {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.light-mode .member-role {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Contact Section */
+.contact-section {
+  margin-bottom: 60px;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #06b6d4;
+  font-weight: 700;
+}
+
+.light-mode .contact-section h2 {
+  color: #38A169;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.light-mode .contact-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info h3, .contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #06b6d4;
+  font-weight: 600;
+}
+
+.light-mode .contact-info h3, .light-mode .contact-form h3 {
+  color: #38A169;
+}
+
+.contact-info p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .contact-info p {
+  color: #4a5568;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #06b6d4;
+  transform: translateY(-3px);
+}
+
+.light-mode .social-link {
+  background-color: rgba(56, 161, 105, 0.1);
+}
+
+.light-mode .social-link:hover {
+  background-color: #38A169;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.light-mode .form-group label {
+  color: #2d3748;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.light-mode .form-group input, .light-mode .form-group textarea {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #2d3748;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+.light-mode .form-group input:focus, .light-mode .form-group textarea:focus {
+  border-color: #38A169;
+  box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.2);
+}
+
+.submit-button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+}
+
+.light-mode .submit-button {
+  background: linear-gradient(135deg, #38A169 0%, #2F855A 100%);
+}
+
+.light-mode .submit-button:hover {
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.4);
+}
+
+/* Footer Styles */
+.about-footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+.light-mode .about-footer {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .mission-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-section {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-header {
+    padding: 30px 15px;
+  }
+
+  .about-main {
+    padding: 0 15px 40px;
+  }
+
+  .about-content h2, .team-section h2, .contact-section h2 {
+    font-size: 28px;
+  }
+
+  .mission-card h3, .contact-info h3, .contact-form h3 {
+    font-size: 20px;
+  }
+}

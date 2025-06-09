@@ -1,0 +1,14 @@
+/* CustomOverrides.css - Custom overrides for specific components */
+
+/* Override project name input focus in light mode to use green shadow instead of blue */
+.light-mode .project-name-input:focus {
+  outline: none;
+  border-color: #38A169 !important; /* Green color */
+  box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.2) !important; /* Green shadow */
+}
+
+/* Add hover effect with green shadow */
+.light-mode .project-name-input:hover {
+  border-color: #38A169;
+  box-shadow: 0 0 8px rgba(56, 161, 105, 0.3);
+}

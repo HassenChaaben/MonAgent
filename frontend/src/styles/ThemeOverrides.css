@@ -1,0 +1,147 @@
+/* Theme Overrides for Code, Pre, and Anchor Tags - Both Light and Dark Modes */
+/* IMPORTANT: These styles only apply to the LogOutput component */
+
+/* Common styles for both themes - only for code elements in LogOutput */
+.log-output-container code,
+.log-output-container pre code,
+.log-output-container pre {
+  font-family: 'Fira Code', 'Courier New', monospace !important;
+  border-radius: 4px !important;
+  overflow-x: auto !important;
+}
+
+/* DARK MODE STYLES */
+
+/* Code tags in dark mode - only in LogOutput */
+.log-output-container code,
+.dark-theme.log-content code,
+.dark-theme.html-output code,
+.log-output-container .dark-theme-code {
+  font-size: 13px !important;
+  background-color: rgba(0, 243, 255, 0.1) !important;
+  color: #ffffff !important;
+  padding: 3px 6px !important;
+  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  box-shadow: 0 0 5px rgba(0, 243, 255, 0.2) !important;
+  display: inline-block !important;
+  margin: 0 2px !important;
+}
+
+/* Pre code tags in dark mode - only in LogOutput */
+.log-output-container pre code,
+.dark-theme.log-content pre code,
+.dark-theme.html-output pre code,
+.log-output-container .dark-theme-pre code {
+  display: block !important;
+  padding: 8px 12px !important;
+  margin: 8px 0 !important;
+  background-color: rgba(10, 10, 16, 0.8) !important;
+  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  white-space: pre !important;
+}
+
+/* Pre tags in dark mode - only in LogOutput */
+.log-output-container pre,
+.dark-theme.log-content pre,
+.dark-theme.html-output pre,
+.log-output-container .dark-theme-pre {
+  background-color: rgba(10, 10, 16, 0.8) !important;
+  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 4px !important;
+  margin: 12px 0 !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Anchor tags in dark mode - only in LogOutput */
+.log-output-container a,
+.dark-theme.log-content a,
+.dark-theme.html-output a,
+.log-output-container a.dark-theme-link {
+  color: var(--neon-blue) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  margin: 10px 0 !important;
+  display: inline-block !important;
+  border: 1px solid var(--neon-blue) !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.log-output-container a:hover,
+.dark-theme.log-content a:hover,
+.dark-theme.html-output a:hover,
+.log-output-container a.dark-theme-link:hover {
+  background-color: var(--neon-blue) !important;
+  color: white !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5) !important;
+}
+
+/* LIGHT MODE STYLES */
+
+/* Code tags in light mode - only in LogOutput */
+.light-mode .log-output-container code,
+.light-theme.log-content code,
+.light-theme.html-output code,
+.log-output-container .light-theme-code {
+  font-size: 13px !important;
+  background-color: #F0F9FF !important;
+  color: #2D3748 !important;
+  padding: 3px 6px !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+  margin: 0 2px !important;
+}
+
+/* Pre code tags in light mode - only in LogOutput */
+.light-mode .log-output-container pre code,
+.light-theme.log-content pre code,
+.light-theme.html-output pre code,
+.log-output-container pre .light-theme-code {
+  display: block !important;
+  padding: 8px 12px !important;
+  margin: 8px 0 !important;
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  white-space: pre !important;
+}
+
+/* Pre tags in light mode - only in LogOutput */
+.light-mode .log-output-container pre,
+.light-theme.log-content pre,
+.light-theme.html-output pre,
+.log-output-container .light-theme-pre {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 6px !important;
+  padding: 4px !important;
+  margin: 12px 0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Anchor tags in light mode - only in LogOutput */
+.light-mode .log-output-container a,
+.light-theme.log-content a,
+.light-theme.html-output a,
+.log-output-container a.light-theme-link {
+  color: #38A169 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  margin: 10px 0 !important;
+  display: inline-block !important;
+  border: 1px solid #38A169 !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.light-mode .log-output-container a:hover,
+.light-theme.log-content a:hover,
+.light-theme.html-output a:hover,
+.log-output-container a.light-theme-link:hover {
+  background-color: #38A169 !important;
+  color: white !important;
+  box-shadow: 0 2px 5px rgba(56, 161, 105, 0.3) !important;
+}

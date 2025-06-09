@@ -1,0 +1,891 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root {
+  /* Dark mode colors (default) */
+  --primary-color: #10A37F;
+  --primary-hover: #0D8A6A;
+  --primary-light: rgba(16, 163, 127, 0.1);
+  --primary-transparent: rgba(16, 163, 127, 0.05);
+
+  /* Modern dark theme with blue accent */
+  --accent-color: #3E63DD;
+  --accent-hover: #2E53CD;
+  --accent-light: rgba(62, 99, 221, 0.1);
+
+  /* Background colors */
+  --bg-dark: #1E1E2E;
+  --bg-darker: #181825;
+  --bg-message-user: #2A2A3C;
+  --bg-message-assistant: #313244;
+  --bg-input: #313244;
+
+  /* Text and borders */
+  --border-color: #45475A;
+  --text-color: #CDD6F4;
+  --text-muted: #A6ADC8;
+  --text-bright: #F5F5F9;
+
+  /* Typography */
+  --font-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Nunito Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.01em;
+
+  /* Shadows and effects */
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.15);
+  --shadow-medium: 0 5px 20px rgba(0, 0, 0, 0.2);
+  --shadow-large: 0 8px 30px rgba(0, 0, 0, 0.25);
+  --glow-effect: 0 0 15px rgba(16, 163, 127, 0.5);
+
+  /* Borders and spacing */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #10A37F 0%, #0D8A6A 100%);
+  --gradient-accent: linear-gradient(135deg, #3E63DD 0%, #2E53CD 100%);
+  --gradient-dark: linear-gradient(180deg, #313244 0%, #1E1E2E 100%);
+}
+
+/* Light Mode Variables */
+.light-mode {
+  --primary-color: #10A37F;
+  --primary-hover: #0D8A6A;
+  --primary-light: rgba(16, 163, 127, 0.1);
+  --primary-transparent: rgba(16, 163, 127, 0.05);
+
+  /* Changed accent color from blue to green */
+  --accent-color: #38A169;
+  --accent-hover: #2F855A;
+  --accent-light: rgba(56, 161, 105, 0.1);
+
+  --bg-dark: #F8FAFC;
+  /* Lighter background */
+  --bg-darker: #FFFFFF;
+  --bg-message-user: #F0F9FF;
+  /* Light blue tint */
+  --bg-message-assistant: #FFFFFF;
+  --bg-input: #FFFFFF;
+
+  --border-color: #D4E6DD;
+  --text-color: #2D3748;
+  --text-muted: #4A5568;
+  --text-bright: #1A202C;
+
+  --shadow-light: 0 2px 10px rgba(56, 161, 105, 0.05);
+  --shadow-medium: 0 5px 15px rgba(56, 161, 105, 0.08);
+  --shadow-large: 0 8px 25px rgba(56, 161, 105, 0.1);
+  --glow-effect: 0 0 15px rgba(56, 161, 105, 0.3);
+
+  /* Changed gradient accent from blue to green */
+  --gradient-primary: linear-gradient(135deg, #10A37F 0%, #0D8A6A 100%);
+  --gradient-accent: linear-gradient(135deg, #38A169 0%, #2F855A 100%);
+  --gradient-dark: linear-gradient(180deg, #FFFFFF 0%, #F5FAF7 100%);
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-dark);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* IDE container */
+.ide-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+}
+
+.light-mode .ide-container {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(249, 168, 37, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(249, 168, 37, 0.03) 0%, transparent 40%);
+}
+
+/* Theme toggle button - Base styles */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1100;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out-expo);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Dark mode (default) styling */
+:root:not(.light-mode) .theme-toggle {
+  background-color: rgba(30, 30, 46, 0.8);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  color: #00bcd4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode hover effect with cyan color */
+:root:not(.light-mode) .theme-toggle:hover {
+  transform: rotate(15deg) scale(1.05);
+  background-color: #00bcd4;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.7), 0 0 20px rgba(0, 188, 212, 0.5), 0 0 30px rgba(0, 188, 212, 0.3);
+  border-color: #00acc1;
+}
+
+/* Make the icon white on hover in dark mode */
+:root:not(.light-mode) .theme-toggle:hover svg path {
+  fill: white !important;
+  stroke: white !important;
+}
+
+/* Add neon glow animation to the toggle button in dark mode */
+@keyframes neon-pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.7), 0 0 25px rgba(0, 188, 212, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+  }
+}
+
+:root:not(.light-mode) .theme-toggle:hover {
+  animation: neon-pulse 2s infinite;
+}
+
+/* Light mode styling */
+.light-mode .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(249, 168, 37, 0.3), 0 0 30px rgba(249, 168, 37, 0.2), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(249, 168, 37, 0.3);
+  color: #F9A825;
+}
+
+.light-mode .theme-toggle:hover {
+  background-color: #F9A825;
+  box-shadow: 0 0 20px rgba(249, 168, 37, 0.5), 0 0 40px rgba(249, 168, 37, 0.3), 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(249, 168, 37, 0.5);
+  color: white;
+  transform: rotate(25deg) scale(1.1);
+}
+
+/* Make the icon white on hover in light mode */
+.light-mode .theme-toggle:hover svg path {
+  fill: white !important;
+  stroke: white !important;
+}
+
+/* IDE Header */
+.ide-header {
+  padding: 12px 20px;
+  background-color: var(--bg-darker);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-light);
+}
+
+.ide-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-right: 16px;
+  font-family: var(--font-heading);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item:hover {
+  color: var(--text-bright);
+  background-color: var(--primary-light);
+}
+
+.breadcrumb-item svg {
+  color: var(--accent-color);
+}
+
+.light-mode .breadcrumb-item svg {
+  color: #38A169;
+}
+
+.breadcrumb-separator {
+  margin: 0 2px;
+  color: var(--border-color);
+}
+
+/* Stop React App Button */
+.stop-react-app-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.stop-react-app-button:hover {
+  transform: translateY(-2px);
+}
+
+.stop-react-app-button:active {
+  transform: translateY(0);
+}
+
+/* Add a subtle pulsing effect for the button in dark mode */
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+
+:root:not(.light-mode) .stop-react-app-button {
+  animation: pulse-red 2s infinite;
+}
+
+.stop-react-app-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* IDE Content */
+.ide-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* File Explorer */
+.file-explorer {
+  width: 280px;
+  background-color: var(--bg-darker);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.file-explorer-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.react-controls {
+  margin-bottom: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.file-explorer-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.file-list,
+.project-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.file-item,
+.project-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.file-item:hover,
+.project-item:hover {
+  background-color: var(--primary-light);
+}
+
+.file-item.directory,
+.project-item {
+  color: var(--accent-color);
+}
+
+.light-mode .file-item.directory,
+.light-mode .project-item {
+  color: #38A169;
+}
+
+.file-item.file {
+  color: var(--text-color);
+}
+
+.file-name,
+.project-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-message {
+  padding: 16px;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Editor Area */
+.editor-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-input);
+}
+
+.editor-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  font-family: var(--font-heading);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.action-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-hover);
+}
+
+.action-button.run {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-hover);
+}
+
+.light-mode .action-button.run {
+  background-color: #38A169;
+  border-color: #2F855A;
+  box-shadow: 0 2px 8px rgba(56, 161, 105, 0.2);
+}
+
+.action-button.run:hover {
+  background-color: var(--accent-hover);
+}
+
+.light-mode .action-button.run:hover {
+  background-color: #2F855A;
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+}
+
+.editor-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.code-editor,
+.code-viewer {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  border: none;
+  resize: none;
+  outline: none;
+  overflow: auto;
+  white-space: pre-wrap;
+  letter-spacing: 0.02em;
+}
+
+.code-editor {
+  tab-size: 2;
+}
+
+/* Enhanced Log Output Styling */
+.run-output {
+  background-color: var(--bg-darker);
+  border-top: 1px solid var(--border-color);
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-output-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.log-output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: var(--bg-input);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.log-output-header h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.log-action-button {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.log-action-button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.log-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  max-height: 200px;
+  transition: max-height 0.3s ease;
+  letter-spacing: 0.01em;
+}
+
+.log-content.expanded {
+  max-height: 500px;
+}
+
+.log-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 4px;
+}
+
+.log-line svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.log-line span {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* Log line types */
+.log-line.info {
+  color: var(--text-color);
+}
+
+.log-line.info svg {
+  color: var(--accent-color);
+}
+
+.log-line.error {
+  color: #E53E3E;
+  background-color: rgba(229, 62, 62, 0.05);
+  padding: 6px 8px;
+}
+
+.log-line.error svg {
+  color: #E53E3E;
+}
+
+.log-line.warning {
+  color: #DD6B20;
+  background-color: rgba(221, 107, 32, 0.05);
+  padding: 6px 8px;
+}
+
+.log-line.warning svg {
+  color: #DD6B20;
+}
+
+.log-line.success {
+  color: #38A169;
+  background-color: rgba(56, 161, 105, 0.05);
+  padding: 6px 8px;
+}
+
+.log-line.success svg {
+  color: #38A169;
+}
+
+/* HTML output styling */
+.html-output {
+  padding: 12px;
+}
+
+/* Dark mode anchor styling with blue neon theme */
+:root:not(.light-mode) .html-output a,
+.dark-theme a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid var(--neon-blue);
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s ease;
+}
+
+:root:not(.light-mode) .html-output a:hover,
+.dark-theme a:hover {
+  background-color: var(--neon-blue);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Light mode anchor styling */
+.light-mode .html-output a {
+  color: #38A169;
+  border-color: #38A169;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  margin: 10px 0;
+  display: inline-block;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.light-mode .html-output a:hover {
+  background-color: #38A169;
+  color: white;
+  box-shadow: 0 0 10px rgba(56, 161, 105, 0.3);
+}
+
+/* Code blocks in output */
+/* Dark mode code styling */
+:root:not(.light-mode) .log-content code,
+.dark-theme code {
+  background-color: rgba(0, 243, 255, 0.1);
+  color: var(--text-bright);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* Fix for code blocks in pre tags */
+:root:not(.light-mode) .log-content pre code,
+.dark-theme pre code {
+  display: block;
+  padding: 8px 12px;
+  margin: 8px 0;
+  background-color: rgba(10, 10, 16, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Light mode code styling */
+.light-mode .log-content code {
+  background-color: #F0F9FF;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* Light mode adjustments */
+.light-mode .log-line.info svg {
+  color: #38A169;
+}
+
+/* Neon text effect for dark mode */
+.neon-text {
+  color: #00bcd4;
+  text-shadow: 0 0 5px rgba(0, 188, 212, 0.5), 0 0 10px rgba(0, 188, 212, 0.3);
+}
+
+/* Add neon glow to log icons in dark mode */
+:root:not(.light-mode) .log-line svg {
+  filter: drop-shadow(0 0 2px rgba(0, 188, 212, 0.7));
+}
+
+:root:not(.light-mode) .log-line.error svg {
+  filter: drop-shadow(0 0 2px rgba(229, 62, 62, 0.7));
+}
+
+:root:not(.light-mode) .log-line.warning svg {
+  filter: drop-shadow(0 0 2px rgba(221, 107, 32, 0.7));
+}
+
+:root:not(.light-mode) .log-line.success svg {
+  filter: drop-shadow(0 0 2px rgba(56, 161, 105, 0.7));
+}
+
+.light-mode .run-output a:hover {
+  background-color: #38A169;
+  color: white;
+  box-shadow: 0 0 10px rgba(56, 161, 105, 0.3);
+}
+
+/* HTML output styling */
+.html-output {
+  padding: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* HTML output code styling */
+:root:not(.light-mode) .html-output code,
+.dark-theme code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 13px;
+  background-color: rgba(0, 243, 255, 0.1);
+  color: var(--text-bright);
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* Fix for code tags in HTML content */
+:root:not(.light-mode) .html-output pre code,
+.dark-theme pre code {
+  display: block;
+  padding: 8px 12px;
+  margin: 8px 0;
+  background-color: rgba(10, 10, 16, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.light-mode .html-output code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 13px;
+  background-color: #F0F9FF;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.html-output p {
+  margin: 10px 0;
+}
+
+/* Pre tag styling for HTML output */
+:root:not(.light-mode) .html-output pre,
+.dark-theme pre {
+  background-color: rgba(10, 10, 16, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: 6px;
+  padding: 4px;
+  margin: 12px 0;
+  overflow-x: auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .html-output pre {
+  background-color: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 4px;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+
+/* Make sure the HTML output doesn't overflow */
+.run-output {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.no-file-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.no-file-selected h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text-bright);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ide-content {
+    flex-direction: column;
+  }
+
+  .file-explorer {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .editor-area {
+    flex: 1;
+  }
+}

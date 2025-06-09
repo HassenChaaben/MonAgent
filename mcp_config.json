@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "description": "Default MCP server configuration for Manus agent",
+  "servers": {
+    "filesystem": {
+      "name": "filesystem",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem"],
+      "args": [],
+      "env": null,
+      "description": "Advanced file system operations and management",
+      "enabled": true,
+      "auto_connect": true,
+      "category": "file_management"
+    },
+    "git": {
+      "name": "git",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-git"],
+      "args": null,
+      "env": null,
+      "description": "Git repository operations and version control",
+      "enabled": true,
+      "auto_connect": true,
+      "category": "development"
+    },
+    "sqlite": {
+      "name": "sqlite",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sqlite"],
+      "args": null,
+      "env": null,
+      "description": "SQLite database operations and queries",
+      "enabled": true,
+      "auto_connect": false,
+      "category": "database"
+    },
+    "memory": {
+      "name": "memory",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "args": null,
+      "env": null,
+      "description": "Persistent memory and knowledge management",
+      "enabled": true,
+      "auto_connect": true,
+      "category": "memory"
+    },
+    "fetch": {
+      "name": "fetch",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-fetch"],
+      "args": null,
+      "env": null,
+      "description": "HTTP requests and API interactions",
+      "enabled": true,
+      "auto_connect": false,
+      "category": "network"
+    },
+    "github": {
+      "name": "github",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "args": null,
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      },
+      "description": "GitHub API integration for repository management",
+      "enabled": false,
+      "auto_connect": false,
+      "category": "development"
+    },
+    "brave_search": {
+      "name": "brave_search",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
+      "args": null,
+      "env": {
+        "BRAVE_API_KEY": ""
+      },
+      "description": "Brave Search API for web search capabilities",
+      "enabled": false,
+      "auto_connect": false,
+      "category": "search"
+    },
+    "postgres": {
+      "name": "postgres",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"],
+      "args": null,
+      "env": {
+        "POSTGRES_CONNECTION_STRING": ""
+      },
+      "description": "PostgreSQL database operations",
+      "enabled": false,
+      "auto_connect": false,
+      "category": "database"
+    },
+    "puppeteer": {
+      "name": "puppeteer",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-puppeteer"],
+      "args": null,
+      "env": null,
+      "description": "Web automation and scraping with Puppeteer",
+      "enabled": false,
+      "auto_connect": false,
+      "category": "automation"
+    }
+  },
+  "setup_instructions": {
+    "prerequisites": [
+      "Node.js and npm must be installed for npx-based servers",
+      "Some servers require API keys or authentication tokens",
+      "Environment variables should be set before connecting to servers"
+    ],
+    "quick_start": [
+      "1. Use MCPManager to list available server configurations",
+      "2. Use MCPManager to validate configurations and check prerequisites",
+      "3. Use MCPClient to connect to desired servers",
+      "4. Use MCPClient to list available tools from connected servers",
+      "5. Use MCPClient to execute tools with appropriate arguments"
+    ],
+    "api_keys_required": {
+      "github": "Create a GitHub Personal Access Token at https://github.com/settings/tokens",
+      "brave_search": "Get a free API key from https://api.search.brave.com/",
+      "postgres": "Provide a PostgreSQL connection string"
+    },
+    "free_servers": [
+      "filesystem",
+      "git", 
+      "sqlite",
+      "memory",
+      "fetch",
+      "puppeteer"
+    ],
+    "servers_requiring_auth": [
+      "github",
+      "brave_search", 
+      "postgres"
+    ]
+  }
+}

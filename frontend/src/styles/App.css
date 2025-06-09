@@ -1,0 +1,138 @@
+/* App navigation styles */
+.app-nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  background-color: rgba(45, 55, 72, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(69, 71, 90, 0.5);
+  border-radius: 12px;
+  width: auto;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  margin: 0 4px;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(56, 161, 105, 0.1);
+  color: #38A169;
+}
+
+.nav-link.active {
+  background-color: #38A169;
+  color: white;
+}
+
+/* Add a subtle indicator for the active link */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background-color: #38A169;
+  transition: transform 0.3s ease, width 0.3s ease;
+  border-radius: 1px;
+  box-shadow: none;
+}
+
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  width: 70%;
+}
+
+/* Light mode styles */
+.light-mode .app-nav {
+  background-color: #ffffff;
+  border: 1px solid rgba(56, 161, 105, 0.3);
+  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-image: none; /* Remove the gradient background */
+}
+
+.light-mode .nav-link {
+  color: #2D3748;
+  font-weight: 500;
+  box-shadow: none;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.light-mode .nav-link:hover {
+  background-color: #ffffff;
+  color: #38A169;
+  border: 1px solid rgba(56, 161, 105, 0.2);
+  box-shadow: 0 2px 8px rgba(56, 161, 105, 0.1);
+  transform: translateY(-1px);
+}
+
+.light-mode .nav-link.active {
+  background: linear-gradient(135deg, #38A169 0%, #2F855A 100%);
+  color: white;
+  border: 1px solid #2F855A;
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+  transform: translateY(-1px);
+  font-weight: 600;
+}
+
+.light-mode .nav-link::after {
+  background: linear-gradient(90deg, #38A169, #2F855A);
+  box-shadow: 0 1px 3px rgba(56, 161, 105, 0.3);
+  height: 3px;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.light-mode .nav-link:hover::after {
+  width: 75%;
+  opacity: 1;
+}
+
+.light-mode .nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+  width: 85%;
+  opacity: 1;
+  box-shadow: 0 2px 5px rgba(56, 161, 105, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-nav {
+    padding: 4px;
+    top: 10px;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 13px;
+    margin: 0 2px;
+  }
+}
+
+/* Remove padding since our nav is now floating */
+.App>div:not(.app-nav) {
+  padding-top: 0;
+}
+
+
+
+

@@ -1,0 +1,94 @@
+/* Project delete button styling */
+.project-item {
+  position: relative;
+}
+
+.project-item:hover .delete-project-btn {
+  opacity: 0.7;
+}
+
+.delete-project-btn:hover {
+  opacity: 1 !important;
+  background-color: transparent !important;
+  color: #E53E3E !important;
+  transform: scale(1.1);
+}
+
+/* Conversation delete button styling */
+.conversation-item {
+  position: relative;
+}
+
+.conversation-item:hover .delete-conversation-btn {
+  opacity: 1;
+  display: flex;
+  /* Show on hover */
+}
+
+.delete-conversation-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #718096;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  display: none;
+  /* Hide by default */
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  /* Make it circular */
+  padding: 0;
+  z-index: 10;
+}
+
+.delete-conversation-btn:hover {
+  opacity: 1 !important;
+  background-color: transparent !important;
+  color: #E53E3E !important;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 2px 5px rgba(229, 62, 62, 0.2);
+}
+
+.delete-conversation-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Dark mode specific styling for conversation delete button */
+:root:not(.light-mode) .delete-conversation-btn {
+  color: #A0AEC0;
+}
+
+:root:not(.light-mode) .delete-conversation-btn:hover {
+  background-color: transparent !important;
+  color: #FF453A !important;
+  box-shadow: 0 0 8px rgba(255, 69, 58, 0.3);
+}
+
+/* Light mode specific styling for project delete button */
+.light-mode .delete-project-btn {
+  color: #E53E3E !important;
+  /* Red color in light mode */
+}
+
+.light-mode .delete-project-btn:hover {
+  background-color: transparent !important;
+  color: #E53E3E !important;
+  box-shadow: 0 0 8px rgba(229, 62, 62, 0.3);
+}
+
+/* Ensure SVG inside delete button is red in light mode */
+.light-mode .delete-project-btn .delete-icon path {
+  stroke: #E53E3E !important;
+}
+
+/* No border on hover in light mode, just the red color */
+.light-mode .delete-project-btn:hover {
+  border: none !important;
+}

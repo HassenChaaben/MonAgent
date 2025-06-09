@@ -1,0 +1,11 @@
+{
+  "name": "flappy_bird",
+  "version": "1.0.0",
+  "description": "A simple Flappy Bird game",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo Starting Flappy Bird && sleep 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,52 @@
+/* ScrollFix.css - Fixes scrolling issues */
+
+html, body, #root, .App, .home-container {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+html {
+  overflow-y: scroll !important;
+}
+
+body {
+  overflow-y: auto !important;
+}
+
+#root, .App {
+  overflow-y: visible !important;
+}
+
+.home-container {
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-y: visible !important;
+  display: block !important;
+}
+
+.home-main {
+  height: auto !important;
+  overflow-y: visible !important;
+  display: block !important;
+}
+
+/* Force all content to be visible */
+.tabs-section, 
+.features-grid, 
+.capabilities-container, 
+.benefits-container, 
+.how-it-works,
+.home-footer {
+  position: relative !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Ensure footer stays at the bottom */
+.home-footer {
+  margin-top: auto;
+  position: relative !important;
+  bottom: 0;
+  width: 100%;
+}

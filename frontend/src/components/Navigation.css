@@ -1,0 +1,92 @@
+.app-nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  background-color: rgba(45, 55, 72, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(69, 71, 90, 0.5);
+  border-radius: 12px;
+  width: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Auto-hide styles for chat, config, and admin views */
+.app-nav.in-chat-view {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  /* Ensure it doesn't overlap with other elements */
+  z-index: 1001;
+}
+
+.app-nav.in-chat-view.hidden {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  pointer-events: none;
+  /* Prevent interaction while hidden */
+  /* Add a small delay before hiding completely to make the animation smoother */
+  transition-delay: 0.1s;
+}
+
+.app-nav.dark-mode {
+  background-color: rgba(30, 30, 30, 0.8);
+  border-color: rgba(60, 60, 60, 0.5);
+}
+
+.nav-link {
+  padding: 8px 16px;
+  margin: 0 4px;
+  color: #f5f5f5;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(56, 161, 105, 0.1);
+  color: #38A169;
+}
+
+.nav-link.active {
+  background-color: #38A169;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .app-nav {
+    width: 90%;
+    padding: 4px;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  /* Adjust the hidden position for smaller screens */
+  .app-nav.in-chat-view.hidden {
+    transform: translate(-50%, -150%);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-nav {
+    width: 95%;
+    padding: 3px;
+  }
+
+  .nav-link {
+    padding: 5px 8px;
+    font-size: 12px;
+    margin: 0 2px;
+  }
+}

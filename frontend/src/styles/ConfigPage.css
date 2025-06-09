@@ -1,0 +1,407 @@
+/* Global styles to fix scrollbar issues */
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Config page styles */
+.config-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f1624;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  padding-bottom: 60px;
+  width: 100%;
+  padding-top: 70px;
+  /* Increased padding to account for the navigation bar */
+  /* Make the config page scrollable for the auto-hide navigation feature */
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 132, 199, 0.5);
+}
+
+/* Light mode scrollbar */
+.light-mode ::-webkit-scrollbar-thumb {
+  background: rgba(56, 161, 105, 0.3);
+}
+
+.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 161, 105, 0.5);
+}
+
+/* Firefox scrollbar - only applied if browser supports it */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(2, 132, 199, 0.3) transparent;
+  }
+
+  .light-mode * {
+    scrollbar-color: rgba(56, 161, 105, 0.3) transparent;
+  }
+}
+
+.light-mode .config-page {
+  background-color: #f7fafc;
+  color: #1a202c;
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(240, 249, 255, 0.8));
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .theme-toggle {
+  background-color: rgba(56, 161, 105, 0.1);
+  box-shadow: 0 2px 10px rgba(56, 161, 105, 0.2);
+}
+
+.light-mode .theme-toggle:hover {
+  background-color: rgba(56, 161, 105, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+}
+
+.config-paper {
+  padding: 2rem;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.light-mode .config-paper {
+  background-color: white !important;
+  color: #1a202c !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Form styling */
+.config-form .MuiTextField-root {
+  margin-bottom: 0.5rem;
+}
+
+.config-form .MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .config-form .MuiInputLabel-root {
+  color: #4a5568;
+}
+
+.config-form .MuiOutlinedInput-root {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.light-mode .config-form .MuiOutlinedInput-root {
+  background-color: #f8fafc;
+}
+
+.config-form .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.light-mode .config-form .MuiOutlinedInput-notchedOutline {
+  border-color: #e2e8f0;
+}
+
+.config-form .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #0284c7;
+}
+
+.config-form .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #0284c7;
+  border-width: 2px;
+}
+
+.config-form .MuiInputBase-input {
+  color: #ffffff;
+}
+
+.light-mode .config-form .MuiInputBase-input {
+  color: #1a202c;
+}
+
+.config-form .MuiFormHelperText-root {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
+
+.light-mode .config-form .MuiFormHelperText-root {
+  color: #718096;
+}
+
+/* Section styling */
+.config-section {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.config-section-title {
+  margin-bottom: 1.5rem !important;
+  font-weight: 600 !important;
+  display: flex;
+  align-items: center;
+  color: #0284c7 !important;
+}
+
+.light-mode .config-section-title {
+  color: #38A169 !important;
+}
+
+.config-section-title::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-left: 1rem;
+}
+
+.light-mode .config-section-title::after {
+  background-color: #e2e8f0;
+}
+
+/* Button styling */
+.save-button {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4) !important;
+  border-radius: 8px !important;
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.light-mode .save-button {
+  background: linear-gradient(135deg, #38A169 0%, #2F855A 100%) !important;
+  box-shadow: 0 4px 14px rgba(56, 161, 105, 0.3) !important;
+}
+
+.save-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6) !important;
+}
+
+.light-mode .save-button:hover {
+  box-shadow: 0 6px 20px rgba(56, 161, 105, 0.4) !important;
+}
+
+/* Page header styling */
+.config-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.config-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.light-mode .config-title {
+  background: linear-gradient(135deg, #38A169 0%, #48BB78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.config-description {
+  max-width: 700px;
+  margin: 0 auto !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+.light-mode .config-description {
+  color: #4a5568 !important;
+}
+
+/* Visual decorations */
+.config-decoration {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.config-decoration-1 {
+  background: #0284c7;
+  top: -100px;
+  right: -100px;
+}
+
+.config-decoration-2 {
+  background: #0369a1;
+  bottom: -100px;
+  left: -100px;
+}
+
+.light-mode .config-decoration-1 {
+  background: #38A169;
+  opacity: 0.1;
+}
+
+.light-mode .config-decoration-2 {
+  background: #4299E1;
+  opacity: 0.1;
+}
+
+/* Logo styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  margin-right: 10px;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.5);
+}
+
+.light-mode .logo-icon {
+  background: linear-gradient(135deg, #38A169 0%, #2F855A 100%);
+  box-shadow: 0 4px 20px rgba(56, 161, 105, 0.3);
+}
+
+/* Optimized Grid layout for 2-column form */
+.config-grid-container {
+  margin-bottom: 1rem !important;
+}
+
+.config-grid-container .MuiGrid-item {
+  padding-bottom: 0.5rem !important;
+}
+
+/* Ensure proper spacing and alignment with two fields per row */
+.config-grid-container > .MuiGrid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reduce spacing between grid items */
+.config-grid-container.MuiGrid-container {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Additional spacing optimizations */
+.config-form .MuiTextField-root .MuiInputBase-root {
+  margin-top: 0.5rem;
+}
+
+.config-form .MuiFormHelperText-root {
+  margin-top: 2px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .config-grid-container .MuiGrid-item {
+    padding-bottom: 0.75rem !important;
+  }
+
+  .config-paper {
+    padding: 1.5rem;
+  }
+}
+
+
+
+

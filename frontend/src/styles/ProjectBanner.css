@@ -1,0 +1,101 @@
+/* ProjectBanner.css - Styles for the fixed project banner */
+
+.project-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--primary-light);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+  font-size: 14px;
+  animation: fadeIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.light-mode.project-banner {
+  background-color: rgba(56, 161, 105, 0.1);
+  color: #38A169;
+  border-bottom: 1px solid rgba(56, 161, 105, 0.2);
+}
+
+.project-banner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  color: var(--primary-color);
+}
+
+.light-mode .project-banner-icon {
+  color: #38A169;
+}
+
+.project-banner-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-banner-title {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.project-banner-description {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Animation for the banner - optimized for performance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .project-banner {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .project-banner-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .project-banner-description {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-banner {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .project-banner-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+
+  .project-banner-description {
+    font-size: 10px;
+  }
+}
