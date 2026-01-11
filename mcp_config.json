@@ -1,10 +1,14 @@
 {
   "version": "1.0",
-  "description": "Default MCP server configuration for Manus agent",
+  "description": "Default MCP server configuration for MonAgent",
   "servers": {
     "filesystem": {
       "name": "filesystem",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem"
+      ],
       "args": [],
       "env": null,
       "description": "Advanced file system operations and management",
@@ -14,7 +18,11 @@
     },
     "git": {
       "name": "git",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-git"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-git"
+      ],
       "args": null,
       "env": null,
       "description": "Git repository operations and version control",
@@ -24,7 +32,11 @@
     },
     "sqlite": {
       "name": "sqlite",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sqlite"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sqlite"
+      ],
       "args": null,
       "env": null,
       "description": "SQLite database operations and queries",
@@ -34,7 +46,11 @@
     },
     "memory": {
       "name": "memory",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
       "args": null,
       "env": null,
       "description": "Persistent memory and knowledge management",
@@ -44,7 +60,11 @@
     },
     "fetch": {
       "name": "fetch",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-fetch"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
       "args": null,
       "env": null,
       "description": "HTTP requests and API interactions",
@@ -54,7 +74,11 @@
     },
     "github": {
       "name": "github",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "args": null,
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": ""
@@ -66,7 +90,11 @@
     },
     "brave_search": {
       "name": "brave_search",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-brave-search"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
       "args": null,
       "env": {
         "BRAVE_API_KEY": ""
@@ -78,7 +106,11 @@
     },
     "postgres": {
       "name": "postgres",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-postgres"
+      ],
       "args": null,
       "env": {
         "POSTGRES_CONNECTION_STRING": ""
@@ -90,7 +122,11 @@
     },
     "puppeteer": {
       "name": "puppeteer",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-puppeteer"],
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ],
       "args": null,
       "env": null,
       "description": "Web automation and scraping with Puppeteer",
@@ -119,7 +155,7 @@
     },
     "free_servers": [
       "filesystem",
-      "git", 
+      "git",
       "sqlite",
       "memory",
       "fetch",
@@ -127,7 +163,7 @@
     ],
     "servers_requiring_auth": [
       "github",
-      "brave_search", 
+      "brave_search",
       "postgres"
     ]
   }

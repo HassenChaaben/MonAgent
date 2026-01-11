@@ -407,7 +407,7 @@ echo "Production environment deployed. Access the application at http://localhos
 
             # Check if containers are running
             containers_result = subprocess.run(
-                ["docker", "ps", "--filter", "name=openmanus"],
+                ["docker", "ps", "--filter", "name=monagent"],
                 capture_output=True,
                 text=True,
             )
@@ -418,7 +418,7 @@ echo "Production environment deployed. Access the application at http://localhos
                 "docker_compose_installed": docker_compose_result.returncode == 0,
                 "dockerfile_exists": dockerfile_exists,
                 "compose_exists": compose_exists,
-                "containers_running": "openmanus" in containers_result.stdout,
+                "containers_running": "monagent" in containers_result.stdout,
                 "docker_version": (
                     docker_result.stdout.strip()
                     if docker_result.returncode == 0

@@ -503,7 +503,7 @@ async def create_task(request: TaskCreateRequest):
     return {"task_id": task.id, "project_name": request.project_name}
 
 
-from app.agent.manus import Manus
+from app.agent.monagent import MonAgent
 
 
 def is_complex_task(prompt: str) -> bool:
@@ -579,9 +579,9 @@ async def run_task(task_id: str, prompt):
         return
 
     try:
-        # Initialize the enhanced Manus agent with tool awareness
-        agent = Manus(
-            name="Manus",
+        # Initialize the enhanced MonAgent with tool awareness
+        agent = MonAgent(
+            name="MonAgent",
             description="An autonomous AI assistant with exceptional tool utilization capabilities",
             project_name=project_name,  # Pass the project name to the agent
             # Pass the base_workspace_path to the agent if it's available, for tools that might need it
@@ -1887,8 +1887,19 @@ async def admin_dashboard(request: Request):
 
 @app.get("/config")
 async def config_page():
-    """Handle the config route for client-side routing"""
-    return RedirectResponse(url="/")
+    """Return the current configuration"""
+    try:
+        config_dir = Path(__file__).parent / "config"
+        config_path = config_dir / "config.toml"
+
+        if config_path.exists():
+            with open(config_path, "rb") as f:
+                config = tomllib.load(f)
+            return {"status": "success", "config": config}
+        else:
+            return {"status": "error", "message": "Configuration file not found"}
+    except Exception as e:
+        return {"status": "error", "message": f"Error reading configuration: {str(e)}"}
 
 
 # React Project Management Endpoints

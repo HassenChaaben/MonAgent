@@ -67,7 +67,7 @@ function LoadingOverlay() {
           <div className="double-bounce1"></div>
           <div className="double-bounce2"></div>
         </div>
-        <div className="loading-text">Waiting for Manus...</div>
+        <div className="loading-text">Waiting for MonAgent...</div>
       </div>
     </div>
   );
@@ -1299,9 +1299,9 @@ const Chat = ({ isDarkMode, toggleTheme }) => {
 
   // Enhanced render "think" type messages with special formatting and streaming support
   const renderThinkContent = (text, isStreaming = false) => {
-    // Format Manus's thoughts with special styling
-    if (text.includes("Manus's thoughts:")) {
-      const thoughts = text.replace(/✨\s*Manus's thoughts:\s*/, '');
+    // Format MonAgent's thoughts with special styling
+    if (text.includes("MonAgent's thoughts:")) {
+      const thoughts = text.replace(/✨\s*MonAgent's thoughts:\s*/, '');
 
       return (
         <div className={`think-content ${isStreaming ? 'streaming' : ''}`}>
@@ -1316,7 +1316,7 @@ const Chat = ({ isDarkMode, toggleTheme }) => {
               </div>
             )}
           </div>
-          <p className="think-header">✨ Manus's thoughts:</p>
+          <p className="think-header">✨ MonAgent's thoughts:</p>
           <div className="think-body">
             {processThoughtContent(thoughts)}
           </div>

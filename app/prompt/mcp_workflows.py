@@ -1,5 +1,5 @@
 """
-MCP Workflow Examples for Manus Agent
+MCP Workflow Examples for MonAgent Agent
 
 This module contains example workflows that demonstrate how to effectively
 combine MCP external tools with built-in code analysis capabilities.
@@ -64,7 +64,7 @@ MCP_WORKFLOW_EXAMPLES = """
 """
 
 MCP_BEST_PRACTICES = """
-## MCP Integration Best Practices for Manus
+## MCP Integration Best Practices for MonAgent
 
 ### Server Selection Strategy
 - **Filesystem Server**: For advanced file operations, directory analysis, file watching
@@ -94,6 +94,7 @@ MCP_BEST_PRACTICES = """
 - Cache frequently accessed external tool results
 """
 
+
 def get_mcp_workflow_for_task(task_type: str) -> str:
     """Get recommended MCP workflow for a specific task type."""
     workflows = {
@@ -104,7 +105,6 @@ def get_mcp_workflow_for_task(task_type: str) -> str:
 4. Use CodeDebugger for issue detection
 5. Combine results for comprehensive analysis
         """,
-        
         "project_setup": """
 1. Use MCPManager to validate available servers
 2. Use MCPClient to connect to git server for repository setup
@@ -112,7 +112,6 @@ def get_mcp_workflow_for_task(task_type: str) -> str:
 4. Use CodebaseSearch to understand existing patterns
 5. Configure project-specific external tools
         """,
-        
         "debugging": """
 1. Use CodeDebugger to identify issues
 2. Use MCPClient with git server to analyze recent changes
@@ -120,7 +119,6 @@ def get_mcp_workflow_for_task(task_type: str) -> str:
 4. Use external database tools if data-related issues
 5. Provide comprehensive debugging report
         """,
-        
         "testing": """
 1. Use CodebaseSearch to identify testable components
 2. Use TestGenerator to create test cases
@@ -128,14 +126,13 @@ def get_mcp_workflow_for_task(task_type: str) -> str:
 4. Use CodeAnalyzer to assess test coverage
 5. Generate comprehensive testing strategy
         """,
-        
         "refactoring": """
 1. Use CodeAnalyzer to identify refactoring opportunities
 2. Use CodebaseSearch to understand code dependencies
 3. Use MCPClient with git server to analyze change impact
 4. Use TestGenerator to ensure refactoring safety
 5. Provide step-by-step refactoring plan
-        """
+        """,
     }
-    
+
     return workflows.get(task_type, workflows["code_analysis"])

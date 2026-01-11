@@ -5,9 +5,9 @@ class ToolError(Exception):
         self.message = message
 
 
-class OpenManusError(Exception):
-    """Base exception for all OpenManus errors"""
+class MonAgentError(Exception):
+    """Base exception for all MonAgent errors"""
 
 
-class TokenLimitExceeded(OpenManusError):
+class TokenLimitExceeded(MonAgentError):
     """Exception raised when the token limit is exceeded"""

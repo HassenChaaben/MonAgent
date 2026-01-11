@@ -1,10 +1,10 @@
 
 [llm]
-model = "claude-3-7-sonnet-20250219"        # The LLM model to use
-base_url = "https://api.anthropic.com/v1/"  # API endpoint URL
-api_key = "YOUR_API_KEY"                    # Your API key
-max_tokens = 8192                           # Maximum number of tokens in the response
-temperature = 0.0                           # Controls randomness
+model = "claude-3-7-sonnet-20250219"       # The LLM model to use
+base_url = "https://api.anthropic.com/v1/" # API endpoint URL
+api_key = "YOUR_API_KEY"                   # Your API key
+max_tokens = 8192                          # Maximum number of tokens in the response
+temperature = 0.0                          # Controls randomness
 
 # [llm] #AZURE OPENAI:
 # api_type= 'azure'
@@ -15,21 +15,21 @@ temperature = 0.0                           # Controls randomness
 # temperature = 0.0
 # api_version="AZURE API VERSION" #"2024-08-01-preview"
 
-# [llm] #OLLAMA:
+# [llm] #OLLAMA (OpenAI Compatible):
 # api_type = 'ollama'
-# model = "llama3.2"
+# model = "llama3.2"                  # Your local model name
 # base_url = "http://localhost:11434/v1"
-# api_key = "ollama"
+# api_key = "ollama"                  # Can be any string
 # max_tokens = 4096
-# temperature = 0.0
+# temperature = 0.7
 
 # Optional configuration for specific LLM models
 [llm.vision]
-model = "claude-3-7-sonnet-20250219"        # The vision model to use
-base_url = "https://api.anthropic.com/v1/"  # API endpoint URL for vision model
-api_key = "YOUR_API_KEY"                    # Your API key for vision model
-max_tokens = 8192                           # Maximum number of tokens in the response
-temperature = 0.0                           # Controls randomness for vision model
+model = "claude-3-7-sonnet-20250219"       # The vision model to use
+base_url = "https://api.anthropic.com/v1/" # API endpoint URL for vision model
+api_key = "YOUR_API_KEY"                   # Your API key for vision model
+max_tokens = 8192                          # Maximum number of tokens in the response
+temperature = 0.0                          # Controls randomness for vision model
 
 # [llm.vision] #OLLAMA VISION:
 # api_type = 'ollama'

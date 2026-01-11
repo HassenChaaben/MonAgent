@@ -1,13 +1,13 @@
 import asyncio
 import time
 
-from app.agent.manus import Manus
+from app.agent.monagent import MonAgent
 from app.logger import logger
 
 
 async def main():
-    # Initialize the enhanced Manus agent with tool awareness
-    agent = Manus()
+    # Initialize the enhanced MonAgent with tool awareness
+    agent = MonAgent()
 
     try:
         # Get user input
@@ -73,4 +73,3 @@ def is_complex_task(prompt: str) -> bool:
 
 if __name__ == "__main__":
     asyncio.run(main())
-
